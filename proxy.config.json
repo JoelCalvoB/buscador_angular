@@ -1,0 +1,9 @@
+{
+    "/api/*":{
+        "target":"http://35.165.229.158:3213/api",
+        "secure":false,
+        "pathRewrite": {
+            "^/api": ""
+          },
+         "changeOrigin": true
+    }}

@@ -14,7 +14,7 @@ export class SeekerComponent implements OnInit {
   public Myform!:FormGroup;
   public url:string = environment.url
   public vermas:boolean = false;
-  public arrayJsonBusqueda:any;
+  public arrayJsonBusqueda:any = [];
   public arrayGlobal:any;
 
   constructor(private fb: FormBuilder , private prd: GenericService) { }
@@ -49,26 +49,23 @@ export class SeekerComponent implements OnInit {
       if(resp.status==200){
         let patient = [];
         patient= resp.body.patients
-        if(!patient)
-       
-
-
+        if(!Boolean(patient)) return;
         
         this.arrayJsonBusqueda = [];
-        patient.forEach((e:any) => {
+        for(let e of patient){
           let urlGetFoilio=`${this.url}/PATIENT/${e.patient_id}/REGISTRY?format=json&token=it4s`
-         this.prd.getObject(urlGetFoilio).subscribe((resp2:any)=>{
-         let obj =  {
-            "Nombre": resp2.first_name,
-            "Primer_apellido": resp2.middle_name,
-            "Segundo_apellido": '',
-            "Sexo":'',
-            "Fecha_nacimiento": resp2.birth_date
-         }
-            this.arrayJsonBusqueda.push(resp2.body);
-            console.log("BUSQUEDA",this.arrayJsonBusqueda);
-         })
-        });
+          this.prd.getObject(urlGetFoilio).subscribe((resp2:any)=>{
+          let obj =  {
+             "Nombre": resp2.first_name,
+             "Primer_apellido": resp2.middle_name,
+             "Segundo_apellido": '',
+             "Sexo":'',
+             "Fecha_nacimiento": resp2.birth_date
+          }
+             this.arrayJsonBusqueda.push(resp2.body);
+             console.log("BUSQUEDA",this.arrayJsonBusqueda);
+          })
+        }
   
       }
     }

@@ -8,25 +8,20 @@ import { AppComponent } from './app.component';
 import { SeekerComponent } from './screens/seeker/seeker/seeker.component';
 import { UserRegisterComponent } from './screens/userRegister/user-register/user-register.component';
 import { InterceptorService } from './shared/interceptor/interceptor.service';
+import { BusquedaexpedienteComponent } from './screens/busquedaexpediente/busquedaexpediente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegisterComponent,
-    SeekerComponent
+    SeekerComponent,
+    BusquedaexpedienteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: InterceptorService,
-      multi: true,
-    },
   ],  bootstrap: [AppComponent]
 })
 export class AppModule { }

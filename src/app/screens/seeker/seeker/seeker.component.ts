@@ -13,6 +13,7 @@ export class SeekerComponent implements OnInit {
 
   public Myform!:FormGroup;
   public url:string = environment.url
+  public vermas:boolean = false;
 
   constructor(private fb: FormBuilder , private prd: GenericService) { }
 
@@ -22,14 +23,15 @@ export class SeekerComponent implements OnInit {
 
   public createForm(obj:any){
     return this.fb.group({
-      nombre_sencillo:["" , [Validators.required]],
+        nhc:'',
+        nombre:'',
+        apellido:'',
+        curp:''
     })
   }
 
  public onSubmit() {  
-  this.Myform.markAllAsTouched();
-       if(!this.Myform.controls['nombre_sencillo'].value) return;
-       this.prd.getObject(`${this.url}`).subscribe(resp =>{
+       this.prd.getObject(`${this.url}/PATIENT/dd6fec1b-30e2-4e46-945d-4ec8773d7372/REGISTRY?format=json&token=it4s`).subscribe(resp =>{
         console.log(resp);
        })
 

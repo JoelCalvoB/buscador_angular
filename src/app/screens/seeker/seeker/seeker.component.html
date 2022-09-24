@@ -1,21 +1,45 @@
-<div style="margin-top:40px; margin-left:40px ;">
-    <form [formGroup]="Myform" (ngSubmit)="onSubmit()" class="row g-3" >
-        <div style="display:flex; flex-direction: row">
-            <div class="col-auto align-items-center" style="display:flex ;">
-                <p>Nombre completo</p>
+<div class="mt-3 mr-2">
+    <form [formGroup]="Myform" (ngSubmit)="onSubmit()" class="row g-3">
+        <div *ngIf="!vermas;else otro" style="display:flex; flex-direction: row">
+         <div class="col-5">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">NHC</label>
+                <input formControlName="nhc" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Buscar</button>
             </div>
-            <div class="col-6 align-items-center">
-                <label style="display: flex;" for="validname" class="visually-hidden"></label>
-                <input class="form-control" formControlName="nombre_sencillo">
-                  <div style="color:red" *ngIf="f['nombre_sencillo']?.errors?.['required'] && f['nombre_sencillo']?.touched ">
-                    Campo Obligatorio
-                  </div>
-            </div>
-            <div class="col-auto align-items-center">
-                <button type="submit" class="btn btn-primary mb-3">Buscar</button>
-            </div>
-
+         </div>
         </div>
+        <ng-template #otro>
+         <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Nombre</label>
+                <input formControlName="nombre" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
 
+            </div>
+         </div>
+          <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Primer apellido</label>
+                <input formControlName="apellido" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+          </div>
+          <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">CURP</label>
+                <input formControlName="curp" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+          </div>
+        </ng-template>
+        <div class="d-flex justify-content-between">
+            <a href="#"  (click)="vermas= !vermas;false">{{vermas?"Menos...":"Busqueda avanzada"}}</a>
+            <button *ngIf="vermas" type="submit" class="btn btn-light mb-3">Buscar</button>
+            <div></div>
+        </div>
     </form>
+
+
 </div>

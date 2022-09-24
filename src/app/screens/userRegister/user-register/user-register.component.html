@@ -1,1 +1,48 @@
-<p>user-register works!</p>
+<form [formGroup]="myForm" (ngSubmit)="enviar()">
+    <div class="row">
+        <div class="col-4 mt-3">
+            <div class="input-group  ">
+                <label class="input-group-text" for="inputGroupFileAddon04">Nombre</label>
+                <input formControlName="nombre" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+        
+        </div>
+        <div class="col-4 mt-3">
+            <div class="input-group  ">
+                <label class="input-group-text" for="inputGroupFileAddon04">Primer apellido</label>
+                <input formControlName="apellido" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+        
+        </div>
+        <div class="col-4 mt-3">
+            <div class="input-group  ">
+                <label class="input-group-text" for="inputGroupFileAddon04">Fecha de nacimiento</label>
+                <input formControlName="fechanacimiento" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+        
+        </div>
+        <div class="col-4 mt-3">
+            <div class="input-group  ">
+                <label class="input-group-text" for="inputGroupFileAddon04">Sexo</label>
+                <input formControlName="sexo" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+        
+        </div>
+        <div class="col-4 mt-3">
+            <div class="input-group  ">
+                <label class="input-group-text" for="inputGroupFileAddon04">Curp</label>
+                <input formControlName="curp" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+        
+        </div>
+    
+        <div class="col-4 mt-3">
+            <button type="submit" class="btn btn-primary mb-3">Registrar</button>
+        
+        </div></div>
+</form>

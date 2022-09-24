@@ -1,0 +1,21 @@
+<div style="margin-top:40px; margin-left:40px ;">
+    <form [formGroup]="Myform" (ngSubmit)="onSubmit()" class="row g-3" >
+        <div style="display:flex; flex-direction: row">
+            <div class="col-auto align-items-center" style="display:flex ;">
+                <p>Nombre completo</p>
+            </div>
+            <div class="col-6 align-items-center">
+                <label style="display: flex;" for="validname" class="visually-hidden"></label>
+                <input class="form-control" formControlName="nombre_sencillo">
+                  <div style="color:red" *ngIf="f['nombre_sencillo']?.errors?.['required'] && f['nombre_sencillo']?.touched ">
+                    Campo Obligatorio
+                  </div>
+            </div>
+            <div class="col-auto align-items-center">
+                <button type="submit" class="btn btn-primary mb-3">Buscar</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>

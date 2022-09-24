@@ -10,6 +10,13 @@
             </div>
          </div>
         </div>
+        <div *ngIf="noseencontraron" class="row">
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    No se encontraron datos. <a href="#"  (click)="vermas= !vermas;false">{{vermas?"Menos...":"Busqueda avanzada"}}</a>
+                  </div>
+            </div>
+        </div>
         <ng-template #otro>
          <div class="col-7">
             <div class="input-group">
@@ -35,7 +42,7 @@
           </div>
         </ng-template>
         <div class="d-flex justify-content-between">
-            <a href="#"  (click)="vermas= !vermas;false">{{vermas?"Menos...":"Busqueda avanzada"}}</a>
+            
             <button *ngIf="vermas" type="submit" class="btn btn-light mb-3">Buscar</button>
             <div></div>
         </div>

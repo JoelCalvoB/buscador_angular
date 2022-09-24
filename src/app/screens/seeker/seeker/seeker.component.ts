@@ -16,6 +16,7 @@ export class SeekerComponent implements OnInit {
   public vermas:boolean = false;
   public arrayJsonBusqueda:any = [];
   public arrayGlobal:any;
+  public noseencontraron:boolean = false;
 
   constructor(private fb: FormBuilder , private prd: GenericService) { }
 
@@ -33,15 +34,27 @@ export class SeekerComponent implements OnInit {
   }
 
   public onSubmit() {  
+    this.arrayJsonBusqueda = []
     console.log(this.Myform.valid);
     this.Myform.markAllAsTouched();
     let nombre = this.Myform.value.nhc;
   let Suburl = `${this.url}/PATIENT/SEARCH?format=json&token=it4s&firstName=${nombre.trim()}&middleName=&lastName=&gender&brithDate&nationalI`;
          this.prd.getObject(`${Suburl}`).subscribe((resp:any) =>{
+          debugger;
+            if(!Boolean(resp.body.patients) || resp.body.patients.length == 0){
+                this.noseencontraron = true;
+                return;
+            }
+            this.noseencontraron = false;
+
             this.buildShowjson(resp);
+            
          })
   
     } 
+
+
+
   
   
   

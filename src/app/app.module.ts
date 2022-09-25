@@ -22,6 +22,8 @@ import { BusquedaexpedienteComponent } from './screens/busquedaexpediente/busque
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],  bootstrap: [AppComponent]
+  ],
+  
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

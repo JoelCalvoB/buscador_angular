@@ -1,9 +1,62 @@
-<form action="">
-    <div class="col-6">
-        <div class="input-group">
-            <label class="input-group-text" for="inputGroupFileAddon04">NHC</label>
-            <input type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Buscar</button>
+<div class="mt-3 mr-2">
+    <form [formGroup]="Myform" (ngSubmit)="onSubmit()" class="row g-3">
+        <div *ngIf="!vermas;else otro" style="display:flex; flex-direction: row">
+         <div class="col-5">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">NHC</label>
+                <input formControlName="nhc" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Buscar</button>
+            </div>
+         </div>
+        </div>
+        <div *ngIf="noseencontraron" class="row">
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    No se encontraron datos. 
+                  </div>
+            </div>
+        </div>
+        <ng-template #otro>
+         <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Nombre</label>
+                <input formControlName="nombre" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+
+            </div>
+         </div>
+          <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Primer apellido</label>
+                <input formControlName="apellido" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
           </div>
+          <div class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">CURP</label>
+                <input formControlName="curp" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>
+          </div>
+        </ng-template>
+        <div class="d-flex justify-content-between">
+            
+            <button *ngIf="vermas" type="submit" class="btn btn-light mb-3">Buscar</button>
+            <div></div>
+        </div>
+    </form>
+
+
+</div>
+
+<div class="row">
+    
+    <div class="col-4">
+       OUTPUT: {{arrayJsonBusqueda | json}}
     </div>
-</form>
+    <div class="col-4">
+        
+    </div>
+</div>

@@ -1,4 +1,4 @@
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,9 +11,14 @@ export class GenericService {
 
   /* Servicios genericos de HTTP del proyecto */
 
-  postObject<T>(url: string, data: T): Observable<HttpResponse<T>> {
-    return this.http.post<T>(url, data, { observe: 'response' });
-  }
+  postObject<T>(url: string, data: T): Observable<any> {
+    const opciones = {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer it4s',
+      }),
+    };
+
+    return this.http.post(url,data,opciones);  }
 
   getObject<T>(url: string): Observable<HttpResponse<T>> {
     return this.http.get<T>(url, { observe: 'response' });

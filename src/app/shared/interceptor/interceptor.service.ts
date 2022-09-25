@@ -19,14 +19,28 @@ export class InterceptorService implements HttpInterceptor {
 
 
   intercept(req: HttpRequest<any>, next: HttpHandler): any {
+    debugger;
     let tokenReq;
-    tokenReq = req.clone({
-      setHeaders: {
-        'Authorization': `Bearer it4s`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-      }
-    });
+   
+    switch (localStorage.getItem('tipo_header')) {
+      case 'token':
+        tokenReq = req.clone({   ///login FAD
+          setHeaders: {
+            'Authorization': `Bearer it4s`,
+            'Content-Type': 'application/json',
+                }
+        });
+      
+        break;
+      default:
+        tokenReq = req.clone({
+          setHeaders: {
+            'Content-Type': 'application/json'
+          }
+        });
+
+        break;
+    }
     return next.handle(tokenReq)
   }
 }

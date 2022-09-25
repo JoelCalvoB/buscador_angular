@@ -3,7 +3,7 @@
         <div *ngIf="!vermas;else otro" style="display:flex; flex-direction: row">
          <div class="col-5">
             <div class="input-group">
-                <label class="input-group-text" for="inputGroupFileAddon04">NHC</label>
+                <label class="input-group-text" for="inputGroupFileAddon04">NOMBRE</label>
                 <input formControlName="nhc" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
                     aria-label="Upload">
                 <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Buscar</button>
@@ -13,10 +13,14 @@
         <div *ngIf="noseencontraron" class="row">
             <div class="col-12">
                 <div class="alert alert-danger" role="alert">
-                    No se encontraron datos. <a href="#"  (click)="vermas= !vermas;false">{{vermas?"Menos...":"Busqueda avanzada"}}</a>
+                    <p (click)="rutea()">
+                        No se encontraron datos.  <u style="color: blue;"> Busqueda avanzada</u>
+                    </p>
+                  
                   </div>
             </div>
         </div>
+
         <ng-template #otro>
          <div class="col-7">
             <div class="input-group">
@@ -40,12 +44,60 @@
                     aria-label="Upload">
             </div>
           </div>
-        </ng-template>
-        <div class="d-flex justify-content-between">
-            
-            <button *ngIf="vermas" type="submit" class="btn btn-light mb-3">Buscar</button>
-            <div></div>
+
+          <div *ngIf="showNuevo" class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Sexo</label>
+                <input formControlName="sexo" type="text" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>            
+          </div>
+
+          <div *ngIf="showNuevo" class="col-7">
+            <div class="input-group">
+                <label class="input-group-text" for="inputGroupFileAddon04">Fecha de nacimiento</label>
+                <input formControlName="fecha" type="date" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
+                    aria-label="Upload">
+            </div>            
+          </div>
+
+          <div *ngIf="Nuevo" class="row">
+            <div class="col-12">
+                <div class="alert alert-danger" role="alert">
+                    <p (click)="nuevo()">
+                        No se encontraron datos.  <u style="color: blue;"> Alta nuevo</u>
+                    </p>
+                  
+                  </div>
+            </div>
         </div>
+
+        </ng-template>
+        <div style="display: flex">
+            <div class="d-flex justify-content-between">
+            
+                <button *ngIf="Btnsavanzada " type="button" (click)="avanzada()" class="btn btn-light mb-3">Buscar</button>
+                <div></div>
+            </div>
+    
+            <div *ngIf="Btnsavanzada" class="d-flex justify-content-between">
+                
+                <button (click)="regresar()" type="button" class="btn btn-light mb-3">Regresar</button>
+                <div></div>
+            </div>
+
+            <div *ngIf="showNuevo" class="d-flex justify-content-between">
+                
+                <button (click)="registrar()" type="button" class="btn btn-light mb-3">Registrar</button>
+                <div></div>
+            </div>
+            <div *ngIf="showNuevo" class="d-flex justify-content-between">
+                
+                <button (click)="regresar()" type="button" class="btn btn-light mb-3">Regresar</button>
+                <div></div>
+            </div>
+        </div>
+     
     </form>
 
 

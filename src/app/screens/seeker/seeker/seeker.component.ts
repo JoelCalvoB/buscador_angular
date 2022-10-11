@@ -146,7 +146,25 @@ export class SeekerComponent implements OnInit {
 
   }
 
+   formatDate(date:any) {
+    var d = new Date(Date.parse(date)),
+        month = '' + (d.getMonth() + 1),
+        day = '' + d.getDate(),
+        year = d.getFullYear();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return [year, month, day].join('-');
+}
+
   registrar(){
+    debugger;
+    let fecha = this.formatDate(this.Myform.value.fecha);
+    console.log('fechaDatw',fecha);
+
      let urls = this.url+"/PATIENT";
      let obj ={
       "patientData":{

@@ -172,7 +172,7 @@ export class SeekerComponent implements OnInit {
          "lastName":this.Myform.value.apellido,
          "gender":"411",
          "nationalId":"02709402602",
-         "brithDate":this.Myform.value.fecha,
+         "brithDate":fecha,
          "middleName":"GAMA"
       }
    }

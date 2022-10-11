@@ -1,22 +1,17 @@
-<div class="container mt-4">
-    <div class="row">
-        <div class="col text-center">
-            <h1>Sistema</h1>
-        </div>
-    </div>
+<div style="width: 100%;">
   <div class="row">
-    <div class="col">
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" routerLink="/seeker" id="profile-tab" routerLinkActive="active" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Busqueda de paciente</button>
-          </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link"  routerLink="/busquedaexpediente" id="home-tab" routerLinkActive="active" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Consulta de expediente</button>
-            </li> 
-          </ul>
-          <div class="tab-content" id="myTabContent">
-             <router-outlet></router-outlet>
-          </div>
+    <div style="background-color: #2a5d4f; display: flex; justify-content: space-around; align-items: center;">
+      <div  routerLink="/menu" style="width: 20%;">
+        <span class="material-icons" style="color: white">
+          arrow_back
+        </span>
+      </div>
+      <div  style="width: 60%;">
+        <h1 style="color:white;">PoC SEDESA - PACIENTE 360</h1>
+      </div>
     </div>
+  </div>
+  <div> 
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -9,13 +9,15 @@ import { SeekerComponent } from './screens/seeker/seeker/seeker.component';
 import { UserRegisterComponent } from './screens/userRegister/user-register/user-register.component';
 import { InterceptorService } from './shared/interceptor/interceptor.service';
 import { BusquedaexpedienteComponent } from './screens/busquedaexpediente/busquedaexpediente.component';
+import { MenuComponent } from './screens/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegisterComponent,
     SeekerComponent,
-    BusquedaexpedienteComponent
+    BusquedaexpedienteComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
